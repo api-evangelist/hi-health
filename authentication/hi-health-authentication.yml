@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/docs/authenticated-api-usage
+note: >-
+  Derived from the Pliant Pro API (Customer) authentication docs — the API powering hi.health by
+  Pliant. No public OpenAPI is downloadable from the ReadMe-hosted portal, so this profile is
+  captured from the published auth documentation rather than a machine-derived securityScheme.
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  token_transport: bearer
+  backend_only: true
+  https_required: true
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  provider: Auth0
+  token_transport: Bearer token in Authorization header
+  token_ttl_seconds: 86400
+  environments:
+  - env: production
+    token_url: https://infinnityprodinternal.eu.auth0.com/oauth/token
+    audience: api.getpliant.com/api/integration
+    api_base: https://partner-api.getpliant.com/api/
+  - env: sandbox
+    token_url: https://infinnitystaginginternal.eu.auth0.com/oauth/token
+    audience: api.staging.infinnitytest.com/api/integration
+    api_base: https://sandbox.partner-api.getpliant.com/api/
+  quota:
+    headers: [Auth0-Client-Quota-Limit]
+    exceeded_status: 429
+notes:
+- The authorization flow must be handled exclusively by a secure backend.
+- All communication requires HTTPS; plain HTTP is unsupported.
+- PCI-DSS certified sensitive-card-data endpoints use a dedicated host pci-api.getpliant.com.
