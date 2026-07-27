@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/changelog
+scheme: dated + semver
+current_version: 2.1.0
+entries:
+- date: '2026-05-21'
+  type: added
+  title: Multiple Card Limits & Callback Improvements
+- date: '2026-01-12'
+  type: added
+  title: Access Token Quotas
+- date: '2026-01-09'
+  type: added
+  title: Multiple Callback Subscriptions
+- date: '2025-10-10'
+  type: improved
+  title: Custom Fields Enhancements
+- date: '2025-07-28'
+  type: added
+  title: Card Copilot for Travel Purchasing Cards
+- date: '2025-07-17'
+  type: changed
+  title: API Authentication Update
+- date: '2025-05-26'
+  type: added
+  title: New limitRenewFrequency values
+- date: '2025-05-06'
+  type: added
+  title: Added cardAccountId to related callback events

@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/docs/environment
+note: >-
+  Sandbox / test environment for the Pliant Pro API (Customer), which powers hi.health by Pliant.
+  Only values published verbatim in the docs are recorded here.
+environments:
+- env: sandbox
+  api_base: https://sandbox.partner-api.getpliant.com/api/
+  token_url: https://infinnitystaginginternal.eu.auth0.com/oauth/token
+  audience: api.staging.infinnitytest.com/api/integration
+- env: production
+  api_base: https://partner-api.getpliant.com/api/
+  token_url: https://infinnityprodinternal.eu.auth0.com/oauth/token
+  audience: api.getpliant.com/api/integration
+test_values:
+- context: activate-physical-card
+  value: '999999'
+  meaning: >-
+    On sandbox, use activation code 999999 (or the card's refNum) to activate a physical card.
+    Virtual cards activate automatically on creation.
+tooling:
+- Test data generation
+- Transaction status simulation (mock transactions)

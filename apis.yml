@@ -1,7 +1,29 @@
 aid: hi-health
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/hi-health.png
 name: Hi Health
-description: Hi Health is a company surfaced as a portfolio company of speedinvest and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Hi Health (hi.health) is a European digital-health payments company, originally a Speedinvest
+  portfolio company, now operating as "hi.health by Pliant". The hi.health domain redirects to
+  Pliant, and the product replaces legacy insurance reimbursement with a cashless, real-time
+  claims-and-payments platform for health & care, home & property, travel, corporate/group, and
+  auto/mobility insurance. It is built on Pliant's card-issuing infrastructure and exposed through
+  Pliant's Pro API (Customer): a REST API for issuing and managing virtual and physical credit
+  cards, cardholders, card accounts, transactions, receipts, accounting integration, and payments,
+  with OAuth 2.0 (Auth0) client-credentials authentication, asynchronous callback webhooks, a
+  sandbox environment, PCI-DSS certified sensitive-card-data endpoints, and a hosted developer
+  portal, changelog, and status page.
 url: https://raw.githubusercontent.com/api-evangelist/hi-health/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +31,121 @@ x-backed-by:
 - speedinvest
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: acquired-into-pliant
+x-note: >-
+  hi.health now redirects to getpliant.com and is branded "hi.health by Pliant"; the developer/API
+  surface enriched here is Pliant's Pro API (Customer), which powers the hi.health insurance
+  payments product.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Health
+- Insurance
+- Payments
+- Fintech
+- Card Issuing
+- Reimbursement
+- InsurTech
+- Digital Health
+- Speedinvest
+apis:
+- name: Pliant Pro API (Customer)
+  description: >-
+    Pliant's Pro API (Customer) is the REST API that powers hi.health by Pliant. It lets a customer
+    programmatically access Pliant credit-card data and features: issue and manage virtual and
+    physical cards, manage cardholders and card accounts, retrieve and categorize transactions,
+    upload and convert receipts, integrate accounting (custom fields, projects, teams), and access
+    payments and statements. Mutating operations are asynchronous and confirmed via callbacks;
+    PCI-DSS certified endpoints on pci-api.getpliant.com return sensitive card data.
+  humanURL: https://customer-api.getpliant.com
+  baseURL: https://partner-api.getpliant.com/api/
+  tags:
+  - Payments
+  - Card Issuing
+  - Fintech
+  properties:
+  - type: Documentation
+    url: https://customer-api.getpliant.com/docs/introduction
+  - type: APIReference
+    url: https://customer-api.getpliant.com/reference
+  - type: GettingStarted
+    url: https://customer-api.getpliant.com/docs/introduction
+  - type: ChangeLog
+    url: https://customer-api.getpliant.com/changelog
+  - type: StatusPage
+    url: https://customer-api.getpliant.com/page/status
+  - type: Authentication
+    url: https://customer-api.getpliant.com/docs/authenticated-api-usage
+  - type: Sandbox
+    url: https://customer-api.getpliant.com/docs/environment
+  - type: Webhooks
+    url: https://customer-api.getpliant.com/docs/authenticated-callback-usage
+  - type: LLMsTxt
+    url: https://customer-api.getpliant.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+  # --- Identity / link properties (searched on the live Pliant surface) ---
+  - type: DeveloperPortal
+    url: https://getpliant.com/en/developers
+  - type: Documentation
+    url: https://customer-api.getpliant.com/docs/introduction
+  - type: APIReference
+    url: https://customer-api.getpliant.com/reference
+  - type: GettingStarted
+    url: https://customer-api.getpliant.com/docs/introduction
+  - type: Support
+    url: https://help.getpliant.com/en/
+  - type: Blog
+    url: https://getpliant.com/en/blog
+  - type: Pricing
+    url: https://getpliant.com/en/pricing
+  - type: SignUp
+    url: https://app.getpliant.com/?language=en
+  - type: PrivacyPolicy
+    url: https://getpliant.com/en/privacy-policy
+  - type: TermsOfService
+    url: https://getpliant.com/en/imprint
+  - type: StatusPage
+    url: https://customer-api.getpliant.com/page/status
+  - type: Deprecation
+    url: https://customer-api.getpliant.com/docs/versioning
+  - type: Webhooks
+    url: https://customer-api.getpliant.com/docs/authenticated-callback-usage
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/getpliant
+  # --- Artifact pointers (this enrichment round) ---
+  - type: LLMsTxt
+    url: llms/hi-health-llms.txt
+  - type: SecurityTxt
+    url: well-known/hi-health-security.txt
+  - type: WellKnown
+    url: well-known/hi-health-well-known.yml
+  - type: Authentication
+    url: authentication/hi-health-authentication.yml
+  - type: Conventions
+    url: conventions/hi-health-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/hi-health-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/hi-health-changelog.yml
+  - type: Sandbox
+    url: sandbox/hi-health-sandbox.yml
+  - type: Conformance
+    url: conformance/hi-health-conformance.yml
+  - type: DomainSecurity
+    url: security/hi-health-domain-security.yml
+  - type: VulnerabilityDisclosure
+    url: security/hi-health-vulnerability-disclosure.yml
+  - type: Security
+    url: https://www.getpliant.com/.well-known/security.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

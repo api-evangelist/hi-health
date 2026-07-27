@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/llms.txt
+note: >-
+  Cross-cutting request/response semantics for the Pliant Pro API (Customer), which powers
+  hi.health by Pliant. Captured from the published guides (pagination, versioning, async
+  processing, API guidelines). No documented idempotency-key contract was found, so no
+  Idempotency pointer is emitted.
+authentication:
+  style: oauth2-client-credentials-bearer
+  ref: authentication/hi-health-authentication.yml
+pagination:
+  style: page-number
+  params: [limit, page, sortBy, sortDirection]
+  docs: https://customer-api.getpliant.com/docs/pagination
+async_processing:
+  model: >-
+    Mutating data happens asynchronously; the caller subscribes to callbacks (webhooks) and waits
+    for the confirming event (e.g. CARD_ISSUED, CARD_ACTIVATED) before treating a resource as ready.
+  callbacks_docs: https://customer-api.getpliant.com/docs/authenticated-callback-usage
+  subscriptions: per-entity callback add/update and remove endpoints
+versioning:
+  scheme: semver
+  current: 2.1.0
+  previous: [2.0.0]
+  docs: https://customer-api.getpliant.com/docs/versioning
+rate_limiting:
+  scope: token-request quotas (Auth0)
+  headers: [Auth0-Client-Quota-Limit]
+  exceeded_status: 429
+idempotency:
+  documented: false
+error_handling:
+  ref: errors
+  notes: HTTP status codes (e.g. 400 for invalid card state, 429 for quota); see API reference per endpoint.
+sensitive_data:
+  pci_dss_host: pci-api.getpliant.com
+  tokenization: PCI-Proxy partner tokenization supported
+cross_links:
+  authentication: authentication/hi-health-authentication.yml
+  lifecycle: lifecycle/hi-health-lifecycle.yml
+  changelog: changelog/hi-health-changelog.yml

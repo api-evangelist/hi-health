@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/docs/authenticated-api-usage
+note: >-
+  Cross-cutting standards the Pliant Pro API (Customer) conforms to, from published docs. This is a
+  standards-conformance assertion, not a published certification program, so no Compliance pointer
+  is emitted here (see security/ trust-center probe for any verified certifications).
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 client-credentials flow via Auth0 (docs/authenticated-api-usage)
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: Machine-to-machine client-credentials grant, bearer token, 24h TTL
+- id: https-only
+  conforms: true
+  evidence: Plain HTTP unsupported; HTTPS mandatory
+- id: pci-dss
+  conforms: true
+  evidence: >-
+    Dedicated PCI-DSS certified endpoints on pci-api.getpliant.com for sensitive card data;
+    instant-issue-with-PCI flow gated to PCI-DSS certified partners
+- id: webhooks
+  conforms: true
+  evidence: Per-entity asynchronous callback subscriptions
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses documented as HTTP status codes; application/problem+json not confirmed

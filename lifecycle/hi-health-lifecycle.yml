@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source: https://customer-api.getpliant.com/docs/versioning
+note: >-
+  Lifecycle for the Pliant Pro API (Customer), which powers hi.health by Pliant.
+versioning:
+  scheme: semver
+  current: 2.1.0
+  previous: [2.0.0]
+  docs: https://customer-api.getpliant.com/docs/versioning
+deprecation:
+  policy_url: https://customer-api.getpliant.com/docs/versioning
+  observed_deprecations:
+  - field: type
+    replaced_by: cardConfig
+    scope: card issuing / card details endpoints
+status_page: https://customer-api.getpliant.com/page/status
+changelog: https://customer-api.getpliant.com/changelog
+sla:
+  url: null
+  uptime_target: null
