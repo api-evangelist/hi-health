@@ -36,7 +36,7 @@ x-note: >-
   hi.health now redirects to getpliant.com and is branded "hi.health by Pliant"; the developer/API
   surface enriched here is Pliant's Pro API (Customer), which powers the hi.health insurance
   payments product.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
 tags:
